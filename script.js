@@ -1,6 +1,16 @@
-(function () {
-  const data = window.SITE_DATA;
+(async function () {
+  let data = window.SITE_DATA;
   const $ = (selector) => document.querySelector(selector);
+
+  async function loadData() {
+    try {
+      const response = await fetch("content/site.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(`content/site.json ${response.status}`);
+      data = await response.json();
+    } catch (error) {
+      console.warn("Using bundled fallback data.", error);
+    }
+  }
 
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
@@ -97,6 +107,7 @@
     setTheme(next);
   });
 
+  await loadData();
   setTheme(localStorage.getItem("growth-lab-theme") || "light");
   render();
 })();

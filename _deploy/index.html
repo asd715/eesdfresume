@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>徐疆哲增长实验室 | Personal Growth Lab</title>
+    <meta name="description" content="徐疆哲的个人品牌主页，记录真实商业实践、增长思考、AI 自动化探索与项目证据。">
+    <meta name="keywords" content="徐疆哲,增长运营,商业实践,AI自动化,个人品牌,Portfolio">
+    <meta property="og:title" content="徐疆哲增长实验室">
+    <meta property="og:description" content="不是传统简历，而是一个记录真实商业实践和增长思考的个人品牌主页。">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#f5f1e8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">G</span>
+        <span>徐疆哲增长实验室</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#cases">实践</a>
+        <a href="#evidence">证据</a>
+        <a href="#insights">思考</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式">
+        <span class="sun">☼</span>
+        <span class="moon">◐</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Personal Growth Lab</p>
+          <h1 id="profile-name">徐疆哲</h1>
+          <p class="hero-title" id="profile-tagline"></p>
+          <p class="hero-subtitle" id="profile-subtitle"></p>
+          <div class="hero-actions">
+            <a class="button primary" href="#cases">查看实践</a>
+            <a class="button ghost" href="#evidence">看证据墙</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="个人概览">
+          <img id="portrait" class="portrait" src="" alt="徐疆哲个人照片">
+          <div class="panel-copy">
+            <span class="panel-kicker">I study demand, growth and systems.</span>
+            <p>我追逐的不是机会，而是机会背后的规律。</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics-band section" aria-label="核心数据">
+        <div id="metrics" class="metrics-grid"></div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div id="about-head" class="about-head"></div>
+        <div id="about-grid" class="about-grid"></div>
+      </section>
+
+      <section id="cases" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Commercial Practice</p>
+          <h2>真实做过的五个小实验</h2>
+          <p>不是包装成“项目经历”，而是记录我如何一点点理解需求、转化和交付。</p>
+        </div>
+        <div id="cases-grid" class="case-grid"></div>
+      </section>
+
+      <section id="evidence" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Evidence Wall</p>
+          <h2>证据墙</h2>
+          <p>证据不喧宾夺主，只负责说明：这些经历是真实发生过的。</p>
+        </div>
+        <div id="tabs" class="tabs" role="tablist" aria-label="证据分类"></div>
+        <div id="evidence-grid" class="evidence-grid"></div>
+      </section>
+
+      <section id="archive" class="section archive">
+        <div class="section-head">
+          <p class="eyebrow">Project Archive</p>
+          <h2>项目档案馆</h2>
+          <p>我更想留下过程，而不是只留下结果。</p>
+        </div>
+        <div id="archive-list" class="timeline"></div>
+      </section>
+
+      <section class="section research-section">
+        <div>
+          <p class="eyebrow">Now Studying</p>
+          <h2>我正在研究什么</h2>
+        </div>
+        <div id="research-list" class="research-list"></div>
+      </section>
+
+      <section id="insights" class="section insights">
+        <div id="insights-head" class="section-head"></div>
+        <div id="insights-list" class="insight-grid"></div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div id="contact-head"></div>
+        <div id="contact-links" class="contact-card"></div>
+      </section>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button type="button" class="lightbox-close" aria-label="关闭图片">×</button>
+      <img src="" alt="">
+      <p></p>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

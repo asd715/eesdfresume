@@ -1,0 +1,158 @@
+backend:
+  name: github
+  repo: asd715/eesdfresume
+  branch: main
+  auth_methods: [token]
+
+site_url: https://asd715.github.io/eesdfresume/
+display_url: https://asd715.github.io/eesdfresume/
+logo_url: https://asd715.github.io/eesdfresume/images/profile/portrait.jpg
+locale: zh_Hans
+media_folder: images
+public_folder: images
+
+collections:
+  - name: site
+    label: 网站内容
+    format: json
+    files:
+      - name: homepage
+        label: 主页全部内容
+        file: content/site.json
+        fields:
+          - label: 个人信息
+            name: profile
+            widget: object
+            fields:
+              - { label: 姓名, name: name, widget: string }
+              - { label: 主标题, name: tagline, widget: string }
+              - { label: 副标题, name: subtitle, widget: string }
+              - { label: 邮箱, name: email, widget: string }
+              - { label: 抖音链接, name: douyin, widget: string }
+              - { label: 个人照片路径, name: portrait, widget: image, required: false }
+
+          - label: 核心数据卡片
+            name: metrics
+            widget: list
+            summary: "{{fields.label}}：{{fields.value}}"
+            fields:
+              - { label: 数字, name: value, widget: string }
+              - { label: 标题, name: label, widget: string }
+              - { label: 说明, name: note, widget: text }
+
+          - label: 关于我
+            name: about
+            widget: object
+            fields:
+              - { label: 小标题, name: eyebrow, widget: string }
+              - { label: 主标题, name: title, widget: string }
+              - label: 卡片
+                name: cards
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: 序号, name: number, widget: string, required: false }
+                  - { label: 标题, name: title, widget: string }
+                  - { label: 高亮句, name: highlight, widget: string, required: false }
+                  - label: 段落
+                    name: paragraphs
+                    widget: list
+                    field: { label: 段落内容, name: paragraph, widget: text }
+
+          - label: 商业实践案例
+            name: cases
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: 标题, name: title, widget: string }
+              - { label: 标签, name: tag, widget: string }
+              - { label: 结果, name: result, widget: string }
+              - { label: 正文, name: body, widget: text }
+
+          - label: 项目档案馆
+            name: archive
+            widget: list
+            field: { label: 档案条目, name: item, widget: text }
+
+          - label: 正在研究
+            name: research
+            widget: list
+            field: { label: 研究方向, name: item, widget: string }
+
+          - label: 我的思考
+            name: insights
+            widget: object
+            fields:
+              - { label: 小标题, name: eyebrow, widget: string }
+              - { label: 主标题, name: title, widget: string }
+              - { label: 引导文字, name: intro, widget: text }
+              - label: 文章 / 主题
+                name: cards
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: 标题, name: title, widget: string }
+                  - { label: 正文, name: body, widget: text, required: false }
+                  - { label: 状态, name: status, widget: string, required: false }
+
+          - label: 联系方式
+            name: contact
+            widget: object
+            fields:
+              - { label: 小标题, name: eyebrow, widget: string }
+              - { label: 主标题, name: title, widget: string }
+              - label: 联系项
+                name: items
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: 显示文本, name: label, widget: string }
+                  - { label: 链接, name: href, widget: string, required: false }
+
+          - label: 证据墙
+            name: evidence
+            widget: object
+            fields:
+              - label: 商业实践证据
+                name: business
+                widget: object
+                fields:
+                  - { label: 分类名, name: label, widget: string }
+                  - label: 图片
+                    name: items
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields: &evidence_item_fields
+                      - { label: 图片, name: src, widget: image }
+                      - { label: 标题, name: title, widget: string }
+                      - { label: 说明, name: desc, widget: text }
+              - label: 交付能力证据
+                name: delivery
+                widget: object
+                fields:
+                  - { label: 分类名, name: label, widget: string }
+                  - label: 图片
+                    name: items
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields: *evidence_item_fields
+              - label: 竞赛与荣誉背书
+                name: awards
+                widget: object
+                fields:
+                  - { label: 分类名, name: label, widget: string }
+                  - label: 图片
+                    name: items
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields: *evidence_item_fields
+              - label: 组织与校园背书
+                name: organization
+                widget: object
+                fields:
+                  - { label: 分类名, name: label, widget: string }
+                  - label: 图片
+                    name: items
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields: *evidence_item_fields
